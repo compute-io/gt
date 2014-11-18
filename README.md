@@ -1,4 +1,4 @@
-gt
+Greater Than
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
@@ -19,18 +19,50 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var foo = require( 'compute-gt' );
+var gt = require( 'compute-gt' );
 ```
 
-#### foo( arr )
+#### gt( arr, x )
 
-What does this function do?
+Computes an element-wise comparison (greater than) for each input `array` element. `x` may either be an `array` of equal length or a single value (`number` or `string`).
+
+The function returns an `array` with length equal to that of the input `array`. Each output `array` element is either `0` or `1`. A value of `1` means that an element is greater than a compared value and `0` means that an element is __not__ greater than a compared value.
+
+``` javascript
+var arr = [ 5, 3, 8, 3, 2 ],
+	out;
+
+// Single comparison value:
+out = gt( arr, 4 );
+// returns [ 1, 0, 1, 0, 0 ]
+
+// Array of comparison values:
+out = gt( arr, [ 6, 2, 6, 7, 3 ] );
+// returns [ 0, 1, 1, 0, 0 ]
+```
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'compute-gt' );
+var gt = require( 'compute-gt' );
+
+// Simulate some data...
+var data = new Array( 100 );
+
+for ( var i = 0; i < data.length; i++ ) {
+	data[ i ] = Math.round( Math.random()*100 );
+}
+
+var out = gt( data, 50 );
+
+// Count the number of values exceeding 50...
+var sum = 0;
+for ( var j = 0; j < out.length; j++ ) {
+	sum += out[ j ];
+}
+
+console.log( 'Total: %d', sum );
 ```
 
 To run the example code from the top-level application directory,
