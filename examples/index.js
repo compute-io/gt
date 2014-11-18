@@ -1,6 +1,7 @@
 'use strict';
 
-var gt = require( './../lib' );
+var gt = require( './../lib' ),
+	sum = require( 'compute-sum' );
 
 // Simulate some data...
 var data = new Array( 100 );
@@ -12,9 +13,6 @@ for ( var i = 0; i < data.length; i++ ) {
 var out = gt( data, 50 );
 
 // Count the number of values exceeding 50...
-var sum = 0;
-for ( var j = 0; j < out.length; j++ ) {
-	sum += out[ j ];
-}
+var count = sum( out );
 
-console.log( 'Total: %d', sum );
+console.log( 'Total: %d', count );

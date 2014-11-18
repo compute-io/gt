@@ -45,7 +45,8 @@ out = gt( arr, [ 6, 2, 6, 7, 3 ] );
 ## Examples
 
 ``` javascript
-var gt = require( 'compute-gt' );
+var gt = require( 'compute-gt' ),
+	sum = require( 'compute-sum' );
 
 // Simulate some data...
 var data = new Array( 100 );
@@ -57,12 +58,9 @@ for ( var i = 0; i < data.length; i++ ) {
 var out = gt( data, 50 );
 
 // Count the number of values exceeding 50...
-var sum = 0;
-for ( var j = 0; j < out.length; j++ ) {
-	sum += out[ j ];
-}
+var count = sum( out );
 
-console.log( 'Total: %d', sum );
+console.log( 'Total: %d', count );
 ```
 
 To run the example code from the top-level application directory,
