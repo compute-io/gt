@@ -56,6 +56,7 @@
     "validate.io-number": "^1.0.3",
     "validate.io-number-primitive": "^1.0.0",
     "validate.io-object": "^1.0.4",
+    "validate.io-string-primitive": "^1.0.0",
     "validate.io-typed-array-like": "^1.0.0"
   },
   "devDependencies": {
