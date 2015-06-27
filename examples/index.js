@@ -43,7 +43,7 @@ console.log( 'Accessors: %s\n', out );
 // Typed arrays...
 data = new Float64Array( 100 );
 for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = Math.round( Math.random()*20 );
+	data[ i ] = Math.round( Math.random()*100 );
 }
 tmp = gt( data, 50 );
 out = '';
